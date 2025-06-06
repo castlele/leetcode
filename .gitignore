@@ -1,13 +1,14 @@
 .DS_Store
-/.build
-/Packages
-xcuserdata/
-DerivedData/
-.swiftpm/configuration/registries.json
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
-.netrc
 
-*.swiftdeps
-*.swiftdeps~
-*.o
-*.d
+swift/.build
+swift/Packages
+swift/xcuserdata/
+swift/DerivedData/
+swift/.swiftpm/configuration/registries.json
+swift/.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+swift/.netrc
+
+swift/*.swiftdeps
+swift/*.swiftdeps~
+swift/*.o
+swift/*.d
