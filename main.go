@@ -1,14 +1,9 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/castlele/leetcode/go/searchinsertpos"
-)
+import "fmt"
 
 func main() {
-	s := &searchinsertpos.Searcher{}
+	str := "(let"
 
-	fmt.Println(s.SearchInsert([]int{1, 3, 5, 6}, 5))
-	fmt.Println(s.SearchInsert([]int{1, 3, 5, 6}, 2))
+	fmt.Println(str[1:1 + 4])
 }

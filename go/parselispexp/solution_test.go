@@ -38,4 +38,28 @@ func TestParsingLispExp(t *testing.T) {
 			t.Errorf("Invalid result! Expected: %d; got: %d", expected, res)
 		}
 	})
+
+	t.Run("test 4", func(t *testing.T) {
+		t.Parallel()
+		exp := "(-1)"
+		expected := -1
+
+		res := evaluate(exp)
+
+		if res != expected {
+			t.Errorf("Invalid result! Expected: %d; got: %d", expected, res)
+		}
+	})
+
+	t.Run("test 5", func(t *testing.T) {
+		t.Parallel()
+		exp := "(20)"
+		expected := 20
+
+		res := evaluate(exp)
+
+		if res != expected {
+			t.Errorf("Invalid result! Expected: %d; got: %d", expected, res)
+		}
+	})
 }
