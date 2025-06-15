@@ -15,8 +15,6 @@ func TestPermutations(t *testing.T) {
 
 		if !reflect.DeepEqual(expected, res) {
 			t.Errorf("Invalid result! Expected: %d; got: %d", expected, res)
-		} else {
-			t.Error("Gay")
 		}
 	})
 }
