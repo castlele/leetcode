@@ -22,5 +22,5 @@ func lengthOfLastWord(s string) int {
 		i--
 	}
 
-    return len
+	return len
 }

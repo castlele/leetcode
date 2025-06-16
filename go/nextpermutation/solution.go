@@ -3,7 +3,7 @@ package nextpermutation
 func nextPermutation(nums []int) {
 	i := len(nums) - 2
 
-	for i >= 0 && nums[i + 1] <= nums[i] {
+	for i >= 0 && nums[i+1] <= nums[i] {
 		i--
 	}
 
@@ -26,7 +26,7 @@ func swap(nums []int, i, j int) {
 }
 
 func reverse(nums []int, start int) {
-	i, j := start, len(nums) - 1
+	i, j := start, len(nums)-1
 
 	for i < j {
 		swap(nums, i, j)

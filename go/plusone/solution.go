@@ -13,7 +13,7 @@ func plusOne(digits []int) []int {
 
 	addOne = func(from int) {
 		if from < 0 {
-			copy := make([]int, len(digits) + 1)
+			copy := make([]int, len(digits)+1)
 			copy = append(d[:1], d[0:]...)
 			copy[0] = 1
 			d = copy

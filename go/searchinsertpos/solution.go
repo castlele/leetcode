@@ -15,7 +15,7 @@ func searchInsert(nums []int, target int) int {
 	var mid int
 
 	for l <= r {
-		mid = l + (r - l) / 2
+		mid = l + (r-l)/2
 
 		if nums[mid] == target {
 			return mid
@@ -29,8 +29,8 @@ func searchInsert(nums []int, target int) int {
 	return l
 }
 
-type Searcher struct { }
+type Searcher struct{}
 
-func (s *Searcher)SearchInsert(nums []int, target int) int {
+func (s *Searcher) SearchInsert(nums []int, target int) int {
 	return searchInsert(nums, target)
 }

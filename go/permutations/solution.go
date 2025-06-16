@@ -22,5 +22,5 @@ func permute(nums []int) [][]int {
 
 	backtrace(make([]int, 0), nums)
 
-    return result
+	return result
 }

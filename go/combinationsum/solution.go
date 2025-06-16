@@ -1,7 +1,7 @@
 package combinationsum
 
 func combinationSum(candidates []int, target int) [][]int {
-    var res [][]int
+	var res [][]int
 	var backtrace func([]int, int, int)
 
 	backtrace = func(path []int, start, remaining int) {

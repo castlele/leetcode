@@ -24,10 +24,9 @@ func evaluate(expression string) int {
 			continue
 		}
 
-
 		index++
 		continue
-		switch expression[index:index+3] {
+		switch expression[index : index+3] {
 		case "let":
 		case "add":
 		case "mul":

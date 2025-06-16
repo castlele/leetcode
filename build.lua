@@ -11,5 +11,6 @@ end
 conf = {
    testcur = string.format('go test ./go/%s -coverpkg=./...', getCurrentFileName()),
    test = "go test ./go/... -coverpkg=./...",
-   run = "go run main.go"
+   run = "go run main.go",
+   gofmt = "go fmt ./go/...",
 }
