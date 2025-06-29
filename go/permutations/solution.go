@@ -12,7 +12,7 @@ func permute(nums []int) [][]int {
 			return
 		}
 
-		for i := 0; i < len(remaining); i++ {
+		for i := range remaining {
 			path := append(current, remaining[i])
 			newRemaining := append([]int{}, remaining[:i]...)
 			newRemaining = append(newRemaining, remaining[i+1:]...)
