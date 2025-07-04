@@ -10,8 +10,8 @@ func mySqrt(x int) int {
 	var lhs float64 = 0
 	rhs := fx
 
-	for rhs - lhs > 0 {
-		var mid float64 = lhs + (rhs - lhs) / 2
+	for rhs-lhs > 0 {
+		var mid float64 = lhs + (rhs-lhs)/2
 		pow := float64(int(mid * mid))
 
 		if pow == fx {
