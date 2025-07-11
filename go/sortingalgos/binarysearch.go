@@ -5,6 +5,30 @@ import (
 	"fmt"
 )
 
+// source: https://leetcode.com/problems/binary-search
+func search(nums []int, target int) int {
+	if len(nums) == 0 {
+		return -1
+	}
+
+	lhs := 0
+	rhs := len(nums) - 1
+
+	for lhs <= rhs {
+		mid := lhs + (rhs-lhs)/2
+
+		if nums[mid] == target {
+			return mid
+		} else if nums[mid] >= target {
+			rhs = mid - 1
+		} else {
+			lhs = mid + 1
+		}
+	}
+
+	return -1
+}
+
 func binarySearch[V cmp.Ordered](nums []V, target V) *Optional[int] {
 	if len(nums) == 0 {
 		return None[int]()
