@@ -12,14 +12,14 @@ func peakIndexInMountainArray(arr []int) int {
 	for lhs <= rhs {
 		mid := lhs + (rhs-lhs)/2
 
-		if arr[mid - 1] < arr[mid] && arr[mid + 1] < arr[mid] {
+		if arr[mid-1] < arr[mid] && arr[mid+1] < arr[mid] {
 			return mid
-		} else if arr[mid - 1] >= arr[mid] {
+		} else if arr[mid-1] >= arr[mid] {
 			rhs = mid
 		} else {
 			lhs = mid
 		}
 	}
 
-    return 0
+	return 0
 }
