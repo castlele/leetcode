@@ -11,7 +11,7 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	}
 
 	lhs := head
-	rhs := 0
+	rhs := head
 	n := 0
 
 	for lhs != nil {
@@ -24,23 +24,27 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	}
 
 	k %= n
-	rhs = (n - 1) - k
+
+	if k == 0 {
+		return head
+	}
+
+	n = 0
 	lhs = head
 
-	for rhs != n-1 {
-		rhs++
+	for n < k {
+		n++
+		rhs = rhs.Next
+	}
+
+	for rhs.Next != nil {
 		lhs = lhs.Next
+		rhs = rhs.Next
 	}
 
 	newHead := lhs.Next
 	lhs.Next = nil
-	lhs = newHead
-
-	for lhs.Next != nil {
-		lhs = lhs.Next
-	}
-
-	lhs.Next = head
+	rhs.Next = head
 
 	return newHead
 }

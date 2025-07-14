@@ -14,6 +14,7 @@ func TestRotateList(t *testing.T) {
 	}{
 		{createLinkedList([]int{1, 2, 3, 4, 5}), 2, []int{4, 5, 1, 2, 3}},
 		{createLinkedList([]int{0, 1, 2}), 4, []int{2, 0, 1}},
+		{createLinkedList([]int{1, 2}), 1, []int{2, 1}},
 	}
 
 	for i, ts := range cases {
