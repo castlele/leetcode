@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"reflect"
 	"testing"
-
-	"github.com/castlele/leetcode/go/utils"
 )
 
 func TestSubsets(t *testing.T) {
@@ -25,7 +23,6 @@ func TestSubsets(t *testing.T) {
 			t.Parallel()
 
 			res := subsets(ts.input)
-			utils.Sort2DSlice(res)
 
 			if !reflect.DeepEqual(ts.output, res) {
 				t.Errorf("Extected: %v; got: %v", ts.output, res)

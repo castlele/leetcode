@@ -22,7 +22,7 @@ func TestTwoSum(t *testing.T) {
 			t.Parallel()
 			res := twoSum(ts.input, ts.target)
 
-			if reflect.DeepEqual(ts.output, res) {
+			if !reflect.DeepEqual(ts.output, res) {
 				t.Errorf("Expected: %v; got: %v", ts.output, res)
 			}
 		})
