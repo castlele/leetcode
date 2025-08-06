@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/castlele/leetcode/go/mergeintervals"
+)
 
 func main() {
-	fmt.Println(4 % 3)
+	mergeintervals.Merge([][]int{{2,6},{8,10},{15,18}, {1,3}})
 }
