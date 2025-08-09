@@ -1,9 +1,14 @@
 package main
 
 import (
-	"github.com/castlele/leetcode/go/mergeintervals"
+	"fmt"
+
+	"github.com/castlele/leetcode/sorting"
 )
 
 func main() {
-	mergeintervals.Merge([][]int{{2,6},{8,10},{15,18}, {1,3}})
+	arr := []int{38, 27, 50, 10, 43}
+	sorting.MergeSort(arr)
+
+	fmt.Println(arr)
 }

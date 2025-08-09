@@ -2,7 +2,6 @@ package sortingalgos
 
 import (
 	"cmp"
-	"fmt"
 )
 
 // source: https://leetcode.com/problems/binary-search
@@ -39,8 +38,6 @@ func binarySearch[V cmp.Ordered](nums []V, target V) *Optional[int] {
 
 	for lhs <= rhs {
 		mid := lhs + (rhs-lhs)/2
-
-		fmt.Println(mid)
 
 		if nums[mid] == target {
 			return Opt(mid)
