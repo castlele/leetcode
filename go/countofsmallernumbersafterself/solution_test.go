@@ -11,6 +11,7 @@ func TestCountOfSmallerNumbersAfterSelf(t *testing.T) {
 		input  []int
 		output []int
 	}{
+		{[]int{5, 2, 6, 1}, []int{2, 1, 1, 0}},
 		{[]int{}, []int{}},
 		{[]int{-1}, []int{0}},
 		{[]int{-1, -1}, []int{0, 0}},

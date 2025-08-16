@@ -1,27 +1,33 @@
 package countofsmallernumbersafterself
 
+type pair struct {
+	value int
+	index int
+}
+
+var (
+	res []int
+)
+
 // source: https://leetcode.com/problems/count-of-smaller-numbers-after-self
 func countSmaller(nums []int) []int {
 	if len(nums) == 0 {
 		return []int{}
 	}
 
-	res := make([]int, len(nums))
+	res = make([]int, len(nums))
+	pairs := make([]pair, len(nums))
 
 	for i, num := range nums {
-		for j := i+1; j < len(nums); j++ {
-			if nums[j] < num {
-				res[i]++
-			}
-		}
+		pairs[i] = pair{value: num, index: i}
 	}
+
+	sort(pairs)
 
 	return res
 }
 
-func sort(nums []int) []int {
-	copy := append([]int{}, nums...)
-
+func sort(nums []pair) {
 	var mergeSort func(lhs, rhs int)
 	var merge func(lhs, mid, rhs int)
 
@@ -29,25 +35,26 @@ func sort(nums []int) []int {
 		n1 := mid - lhs + 1
 		n2 := rhs - mid
 		i, j, k := 0, 0, lhs
-		L := make([]int, n1)
-		R := make([]int, n2)
+		L := make([]pair, n1)
+		R := make([]pair, n2)
 
 		for ; i < n1; i++ {
-			L[i] = copy[lhs+i]
+			L[i] = nums[lhs+i]
 		}
 
 		for ; j < n2; j++ {
-			R[j] = copy[mid+j+1]
+			R[j] = nums[mid+j+1]
 		}
 
 		i, j = 0, 0
 
 		for i < n1 && j < n2 {
-			if L[i] < R[j] {
-				copy[k] = L[i]
+			if L[i].value > R[j].value {
+				nums[k] = L[i]
+				res[L[i].index] += n2 - j
 				i++
 			} else {
-				copy[k] = R[j]
+				nums[k] = R[j]
 				j++
 			}
 
@@ -55,13 +62,13 @@ func sort(nums []int) []int {
 		}
 
 		for i < n1 {
-			copy[k] = L[i]
+			nums[k] = L[i]
 			i++
 			k++
 		}
 
 		for j < n2 {
-			copy[k] = R[j]
+			nums[k] = R[j]
 			j++
 			k++
 		}
@@ -79,26 +86,5 @@ func sort(nums []int) []int {
 		merge(lhs, mid, rhs)
 	}
 
-	mergeSort(0, len(copy)-1)
-
-	return copy
-}
-
-func find(nums []int, num int) int {
-	lhs := 0
-	rhs := len(nums) - 1
-
-	for lhs <= rhs {
-		mid := lhs + (rhs-lhs)/2
-
-		if nums[mid] == num {
-			return mid
-		} else if nums[mid] > num {
-			rhs = mid - 1
-		} else {
-			lhs = mid + 1
-		}
-	}
-
-	return -1
+	mergeSort(0, len(nums)-1)
 }
