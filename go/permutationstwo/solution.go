@@ -18,7 +18,7 @@ func permuteUnique(nums []int) [][]int {
 			return
 		}
 
-		for i := 0; i < len(nums); i++ {
+		for i := range nums {
 			if used[i] {
 				continue
 			}

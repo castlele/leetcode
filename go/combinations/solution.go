@@ -1,6 +1,6 @@
 package combinations
 
-// source; https://leetcode.com/problems/combinations
+// source: https://leetcode.com/problems/combinations
 func combine(n int, k int) [][]int {
 	var res [][]int
 	var path []int

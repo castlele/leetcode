@@ -2,13 +2,17 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/castlele/leetcode/sorting"
 )
 
 func main() {
-	arr := []int{38, 27, 50, 10, 43}
-	sorting.MergeSort(arr)
+	lhs := 0
+	rhs := 3
 
-	fmt.Println(arr)
+	mid := lhs + (rhs - lhs)/2
+	fmt.Printf("%d %d %d\n", lhs, mid, rhs)
+
+	lhs = 0
+	rhs = mid
+	mid = lhs + (rhs - lhs)/2
+	fmt.Printf("%d %d %d\n", lhs, mid, rhs)
 }
