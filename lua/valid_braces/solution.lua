@@ -21,42 +21,23 @@ Examples:
 ```
 --]]
 kata.validBraces = function(braces)
-  local opposites = {
-    ["("] = ")",
-    ["["] = "]",
-    ["{"] = "}",
-  }
+  local stack = {}
 
-  local function check_inner(start, stop)
-    if start > stop then
-      return true
-    end
-
-    local brace = string.sub(braces, start, start)
-    local opposite = opposites[brace]
-
-    if opposite == nil then
+  for brace in braces:gmatch(".") do
+    if stack[#stack] == brace then
+      table.remove(stack)
+    elseif brace == "(" then
+      table.insert(stack, ")")
+    elseif brace == "[" then
+      table.insert(stack, "]")
+    elseif brace == "{" then
+      table.insert(stack, "}")
+    else
       return false
     end
-
-    local occurrences = 1
-
-    for j = start + 1, stop do
-      local current = string.sub(braces, j, j)
-
-      if current == opposite and occurrences == 1 then
-        return check_inner(start + 1, j - 1) and check_inner(j + 1, stop)
-      elseif current == opposite and occurrences > 1 then
-        occurrences = occurrences - 1
-      elseif current == brace then
-        occurrences = occurrences + 1
-      end
-    end
-
-    return false
   end
 
-  return check_inner(1, #braces)
+  return #stack == 0
 end
 
 return kata
