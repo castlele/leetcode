@@ -1,0 +1,10 @@
+require("busted.runner")()
+local solution = require "solution"
+describe("RomanEncoder", function()
+  it("ShouldPassBasicTests", function()
+    assert.are.same("M", solution.romanEncoder(1000))
+    assert.are.same("IV", solution.romanEncoder(4))
+    assert.are.same("I", solution.romanEncoder(1))
+    assert.are.same("MMM", solution.romanEncoder(3000))
+  end)
+end)
