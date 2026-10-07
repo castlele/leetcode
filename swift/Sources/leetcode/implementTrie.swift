@@ -7,6 +7,14 @@ class Trie {
 
         var isEnd = false
 
+        var count: Int {
+            children.count
+        }
+
+        var first: (Character, Node)? {
+            children.first
+        }
+
         subscript(_ char: Character) -> Node? {
             get {
                 children[char]
@@ -19,6 +27,19 @@ class Trie {
 
     init() {
 
+    }
+
+    func longestCommon() -> String {
+        var common = ""
+
+        var node = root
+
+        while node.count == 1, !node.isEnd, let (char, next) = node.first {
+            common.append(char)
+            node = next
+        }
+
+        return common
     }
 
     func insert(_ word: String) {
