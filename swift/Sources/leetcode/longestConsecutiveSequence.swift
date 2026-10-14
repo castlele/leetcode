@@ -16,7 +16,6 @@ func longestConsecutive(_ nums: [Int]) -> Int {
         let cur = sortedNums[i]
         let prev = sortedNums[i - 1]
         let diff = abs(cur - prev)
-        print("\(prev) - \(cur) - \(diff) - \(current) - \(max)")
 
         if diff == 1 {
             current += 1
