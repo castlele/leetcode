@@ -1,37 +1,49 @@
-/// source https://leetcode.com/problems/3sum/
+/// [Link](https://leetcode.com/problems/3sum/)
 func threeSum(_ nums: [Int]) -> [[Int]] {
+    let sorted = nums.sorted()
     var result = [[Int]]()
-    let n = nums.sorted()
 
-    for i in 0..<n.count {
-        if i > 0 && n[i] == n[i - 1] { continue }
-
-        let target = -n[i]
-
-        var left = i + 1
-        var right = n.count - 1
-
+    func findTwoSum(
+        target: Int,
+        _ left: inout Int,
+        _ right: inout Int
+    ) -> (lhsIndex: Int, rhsIndex: Int)? {
         while left < right {
-            let sum = n[left] + n[right]
+            let sum = sorted[left] + sorted[right]
 
             if sum == target {
-                result.append([n[i], n[left], n[right]])
-
-                while left < right && n[left] == n[left + 1] {
-                    left += 1
-                }
-                while left < right && n[right] == n[right - 1] {
-                    right -= 1
-                }
-
-                left += 1
+                return (left, right)
+            } else if sum > target {
                 right -= 1
-
-            } else if sum < target {
-                left += 1
             } else {
+                left += 1
+            }
+        }
+
+        return nil
+    }
+
+    for index in 0..<sorted.count {
+        guard index == 0 || sorted[index] != sorted[index - 1] else {
+            continue
+        }
+
+        var left = index + 1
+        var right = sorted.count - 1
+
+        while let (lhsIndex, rhsIndex) = findTwoSum(
+            target: -sorted[index],
+            &left,
+            &right
+        ) {
+            result.append([sorted[index], sorted[lhsIndex], sorted[rhsIndex]])
+
+            while left < right && sorted[right] == sorted[right - 1] {
                 right -= 1
             }
+
+            right -= 1
+            left += 1
         }
     }
 
